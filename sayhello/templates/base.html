@@ -9,11 +9,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 </head>
 <body>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    {#
+                    {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('settings') }}">Settings</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    {% endif %}
+                    #}
+                </ul>
+            </nav>
 <main class="container">
     <header>
         <h1 class="text-center display-4">
-            <a href="{{ url_for('index') }}" class="text-success"><strong>Say Hello</strong></a>
-            <small class="text-muted sub-title">to the world</small>
+            <small class="text-muted sub-title">insta</small>
+            <a href="{{ url_for('index') }}" class="text-success"><strong>CUC</strong></a>
         </h1>
     </header>
     {% for message in get_flashed_messages() %}
@@ -25,9 +38,8 @@
     {% block content %}{% endblock %}
     <footer class="text-center">
         {% block footer %}
-            <small> &copy; 2018 <a href="http://greyli.com" title="Written by Grey Li">Grey Li</a> /
-                <a href="https://github.com/greyli/sayhello" title="Fork me on GitHub">GitHub</a> /
-                <a href="http://helloflask.com" title="A HelloFlask project">HelloFlask</a>
+            <small> &copy; 2023 <a href="https://github.com/Mr-Nobodyl" title="Written by lim">lim</a> /
+                <a href="https://github.com/Mr-Nobodyl/SayHello" title="Fork me on GitHub">GitHub</a>
             </small>
             <p><a id="bottom" href="#" title="Go Top">&uarr;</a></p>
         {% endblock %}

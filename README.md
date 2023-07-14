@@ -4,6 +4,11 @@
 
 > 本项目基于教程 [Flask Web 开发实战](https://helloflask.com/book/1/) 和开源项目 [SayHello](https://github.com/greyli/sayhello) 二次开发而成
 
+### 特色
+
+- 基于 `Flask` 框架
+- `unittest` 单元测试
+
 ## Installation
 
 clone:

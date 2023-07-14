@@ -25,7 +25,7 @@ header h1 {
 }
 
 .sub-title {
-    font-size: 24px;
+    font-size: 32px;
 }
 
 @media screen and (max-width: 600px) {
@@ -40,4 +40,33 @@ header a {
 
 footer {
     margin: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+.post_img {
+    width: 100%;
+    height: auto;
 }
