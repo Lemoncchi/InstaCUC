@@ -25,13 +25,14 @@ def forge(count):
     db.drop_all()
     db.create_all()
 
+    fake_CN = Faker('zh_CN')
     fake = Faker()
     click.echo('Working...')
 
     for i in range(count):
         message = Message(
             name=fake.name(),
-            body=fake.sentence(),
+            body=fake_CN.sentence(),
             timestamp=fake.date_time_this_year()
         )
         db.session.add(message)
