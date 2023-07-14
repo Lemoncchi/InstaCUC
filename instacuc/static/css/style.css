@@ -70,3 +70,12 @@ nav li a:hover {
     width: 100%;
     height: auto;
 }
+
+.faker-comment {
+    color: gray;
+    font-size: 14px;
+}
+
+.faker-comment-p{
+    text-align: right;
+}

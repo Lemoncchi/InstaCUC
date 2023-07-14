@@ -3,6 +3,8 @@ import click
 from instacuc import app, db
 from instacuc.models import Message
 
+import random
+
 
 @app.cli.command()
 @click.option('--drop', is_flag=True, help='Create after drop.')
@@ -17,13 +19,24 @@ def initdb(drop):
 
 
 @app.cli.command()
-@click.option('--count', default=20, help='Quantity of messages, default is 20.')
+@click.option('--count', default=5, help='Quantity of messages, default is 20.')
 def forge(count):
     """Generate fake messages."""
     from faker import Faker
 
     db.drop_all()
     db.create_all()
+
+    def get_example_images():
+        """获取测试用图片"""
+        import os
+        example_img_dir = os.path.join(app.static_folder, 'img', 'example_CUC')
+        example_img_list = []
+        for filename in os.listdir(example_img_dir):
+            example_img_list.append(os.path.join('/static', 'img', 'example_CUC', filename))
+        return example_img_list
+
+    example_img_list = get_example_images()
 
     fake_CN = Faker('zh_CN')
     fake = Faker()
@@ -33,7 +46,8 @@ def forge(count):
         message = Message(
             name=fake.name(),
             body=fake_CN.sentence(),
-            timestamp=fake.date_time_this_year()
+            timestamp=fake.date_time_this_year(),
+            img_url= random.choice(example_img_list)
         )
         db.session.add(message)
 
