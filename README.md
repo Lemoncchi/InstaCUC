@@ -1,34 +1,35 @@
 # SayHello
 
-*Say hello to the world.*
+## 简介
 
-> Example application for *[Python Web Development with Flask](https://helloflask.com/en/book/1)* (《[Flask Web 开发实战](https://helloflask.com/book/1)》).
-
-Demo: http://sayhello.helloflask.com
-
-![Screenshot](https://helloflask.com/screenshots/sayhello.png)
+> 本项目基于教程 [Flask Web 开发实战](https://helloflask.com/book/1/) 和开源项目 [SayHello](https://github.com/greyli/sayhello) 二次开发而成
 
 ## Installation
 
 clone:
+
 ```
 $ git clone https://github.com/greyli/sayhello.git
 $ cd sayhello
 ```
-create & activate virtual env then install dependency:
 
-with venv/virtualenv + pip:
+### virtualenv 安装:
+
 ```
-$ python -m venv env  # use `virtualenv env` for Python2, use `python3 ...` for Python3 on Linux & macOS
+$ python -m venv env
 $ source env/bin/activate  # use `env\Scripts\activate` on Windows
 $ pip install -r requirements.txt
 ```
-or with Pipenv:
+
+### Pipenv 安装:
+
 ```
 $ pipenv install --dev
 $ pipenv shell
 ```
+
 generate fake data then run:
+
 ```
 $ flask forge
 $ flask run
