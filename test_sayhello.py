@@ -2,12 +2,12 @@ import unittest
 
 from flask import abort
 
-from sayhello import app, db
-from sayhello.models import Message
-from sayhello.commands import forge, initdb
+from instacuc import app, db
+from instacuc.models import Message
+from instacuc.commands import forge, initdb
 
 
-class SayHelloTestCase(unittest.TestCase):
+class InstaCUCTestCase(unittest.TestCase):
 
     def setUp(self):
         app.config.update(

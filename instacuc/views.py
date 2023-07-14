@@ -1,8 +1,8 @@
 from flask import flash, redirect, url_for, render_template
 
-from sayhello import app, db
-from sayhello.forms import HelloForm
-from sayhello.models import Message
+from instacuc import app, db
+from instacuc.forms import HelloForm
+from instacuc.models import Message
 
 
 @app.route('/', methods=['GET', 'POST'])

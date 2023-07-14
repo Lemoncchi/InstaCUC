@@ -1,6 +1,6 @@
 from flask import render_template
 
-from sayhello import app
+from instacuc import app
 
 
 @app.errorhandler(404)

@@ -25,5 +25,5 @@ jobs:
     - name: executing
       run: 
         # 指定所要运行的shell
-        python3 test_sayhello.py
+        python3 test_instacuc.py
         

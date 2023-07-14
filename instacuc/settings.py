@@ -1,7 +1,7 @@
 import os
 import sys
 
-from sayhello import app
+from instacuc import app
 
 # SQLite URI compatible
 WIN = sys.platform.startswith('win')

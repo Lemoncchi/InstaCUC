@@ -1,7 +1,7 @@
 import click
 
-from sayhello import app, db
-from sayhello.models import Message
+from instacuc import app, db
+from instacuc.models import Message
 
 
 @app.cli.command()

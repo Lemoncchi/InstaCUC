@@ -1,2 +1,2 @@
-FLASK_APP=sayhello
+FLASK_APP=instacuc
 FLASK_ENV=development

@@ -1,8 +1,8 @@
-# SayHello
+# InstaCUC
 
 ## 简介
 
-> 本项目基于教程 [Flask Web 开发实战](https://helloflask.com/book/1/) 和开源项目 [SayHello](https://github.com/greyli/sayhello) 二次开发而成
+> 本项目基于教程 [Flask Web 开发实战](https://helloflask.com/book/1/) 和开源项目 [InstaCUC](https://github.com/greyli/instacuc) 二次开发而成
 
 ### 特色
 
@@ -14,8 +14,8 @@
 clone:
 
 ```
-$ git clone https://github.com/greyli/sayhello.git
-$ cd sayhello
+$ git clone https://github.com/greyli/instacuc.git
+$ cd instacuc
 ```
 
 ### virtualenv 安装:

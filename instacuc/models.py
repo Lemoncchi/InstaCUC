@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sayhello import db
+from instacuc import db
 
 
 class Message(db.Model):
