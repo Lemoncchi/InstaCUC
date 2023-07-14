@@ -72,8 +72,8 @@ class InstaCUCTestCase(unittest.TestCase):
 
     def test_forge_command(self):
         result = self.runner.invoke(forge)
-        self.assertIn('Created 20 fake messages.', result.output)
-        self.assertEqual(Message.query.count(), 20)
+        self.assertIn('Created 5 fake messages.', result.output)
+        self.assertEqual(Message.query.count(), 5)
 
     def test_forge_command_with_count(self):
         result = self.runner.invoke(forge, ['--count', '50'])
