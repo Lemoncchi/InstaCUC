@@ -25,7 +25,9 @@
                 </div>
                 <p class="mb-1">{{ message.body }}</p>
                 <p class="faker-comment-p">
-                    <s class="faker-comment">来自 faker 生成的狗屁不同的测试文字</s>
+                {% if message.fake %}
+                    <s class="faker-comment">来自 faker 生成的狗屁不通的测试文字</s>
+                {% endif %}
                 </p>
                 <img src={{ photos.url(message.img_file_name) }} alt="Example Image" class="post_img">
             </a>
