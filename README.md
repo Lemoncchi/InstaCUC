@@ -1,5 +1,7 @@
 # InstaCUC
 
+![example workflow](https://github.com/Mr-Nobodyl/InstaCUC/actions/workflows/web-test.yml/badge.svg)
+
 ## 简介
 
 ~~本项目是从各开源项目和教程中东拼西凑再魔改出来的 NTR 作品~~
