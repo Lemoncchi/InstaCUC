@@ -81,5 +81,6 @@ nav li a:hover {
 }
 
 .header-logo {
-    text-align: center;
+    float: right;
+    padding: 3px 12px;
 }

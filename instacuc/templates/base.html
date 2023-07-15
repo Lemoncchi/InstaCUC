@@ -20,13 +20,13 @@
                     <li><a href="{{ url_for('login') }}">Login</a></li>
                     {% endif %}
                     #}
+                    <div class="header-logo"> 
+                        <li><img src="{{ url_for('static', filename='favicon.ico') }}" alt="InstaCUC Logo" width="40px"></li>  
+                    </div>
                 </ul>
             </nav>
 <main class="container">
     <header>
-        <div class="header-logo">
-            <img src="{{ url_for('static', filename='favicon.ico') }}" alt="InstaCUC Logo" width="40px">
-        </div>
         <h1 class="text-center display-4">
             <small class="text-muted sub-title">insta</small>
             <a href="{{ url_for('index') }}" class="text-success"><strong>CUC</strong></a>

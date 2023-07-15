@@ -56,6 +56,7 @@ $ flask run
 - [Flask 入门教程](https://read.helloflask.com/)
 - [How to use Flask-Session in Python Flask ?](https://www.geeksforgeeks.org/how-to-use-flask-session-in-python-flask/)
 - [如何处理请求](https://dormousehole.readthedocs.io/en/latest/lifecycle.html#id5)
+- [【Flask】 结合wtforms的文件上传表单](https://www.cnblogs.com/franknihao/p/7422805.html)
 
 ## License
 
