@@ -57,6 +57,8 @@ $ flask run
 - [How to use Flask-Session in Python Flask ?](https://www.geeksforgeeks.org/how-to-use-flask-session-in-python-flask/)
 - [如何处理请求](https://dormousehole.readthedocs.io/en/latest/lifecycle.html#id5)
 - [【Flask】 结合wtforms的文件上传表单](https://www.cnblogs.com/franknihao/p/7422805.html)
+- [How to send image with form data in test case with unittest in flask application?](https://stackoverflow.com/questions/34331137/how-to-send-image-with-form-data-in-test-case-with-unittest-in-flask-application)
+- [Do I have to do StringIO.close()?](https://stackoverflow.com/questions/9718950/do-i-have-to-do-stringio-close)
 
 ## License
 
