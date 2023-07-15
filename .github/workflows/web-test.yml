@@ -8,7 +8,7 @@ on: [push]
 jobs:
   
   # build相当于<job_id>,可以自定义
-  build:
+  virtualenv_test:
 
     # 指定该job_id下的运行环境
     runs-on: ubuntu-latest
@@ -30,3 +30,27 @@ jobs:
       run: 
         # 生成测试报告
         coverage report
+  
+  pipenv_test:
+    runs-on: ubuntu-latest
+    
+    # 制定运行步骤
+    steps:
+    # 先将仓库的代码checkout到环境中，github提供了checkout的方法，只需要我们加上这条即可
+    - uses: actions/checkout@v1
+    # 为接下来所执行的shell命名，可省略
+    - name: installing pipenv
+      run: 
+        pip3 install pipenv
+    - name: pipenv install
+      run: 
+        # 安装所需要的依赖
+        pipenv install
+    - name: coverage test
+      run: 
+        # 运行测试用例
+        pipenv run coverage run test_instacuc.py
+    - name: generate report
+      run: 
+        # 生成测试报告
+        pipenv run coverage report
