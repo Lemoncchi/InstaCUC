@@ -53,4 +53,4 @@ jobs:
     - name: generate report
       run: 
         # 生成测试报告
-        pipenv run coverage report
+        pipenv run coverage report -i
