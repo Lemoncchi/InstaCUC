@@ -25,3 +25,11 @@ def index():
 
     messages = Message.query.order_by(Message.timestamp.desc()).all()
     return render_template('index.html', form=form, messages=messages, photos=photos)
+
+@app.route('/decode/<int:id>', methods=['GET', 'POST'])
+def decode_img(id):
+    message = Message.query.get_or_404(id)
+    img_file_path = photos.path(message.img_file_name)
+    hidden_message = extract_watermark(img_file_path)
+    flash(f'解码成功！隐藏信息为：\n{hidden_message}')
+    return redirect(url_for('index', message=message, hidden_message=hidden_message))

@@ -10,4 +10,5 @@ class Message(db.Model):
     img_file_name = db.Column(db.String(200))
     hidden_message = db.Column(db.String(200))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    has_hidden_message = db.Column(db.Boolean, default=False)
     fake = db.Column(db.Boolean, default=False)

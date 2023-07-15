@@ -43,13 +43,16 @@ def forge(count):
     fake = Faker()
     click.echo('Working...')
 
+    
     for i in range(count):
+        has_hidden_message= random.choice([True, False])
         message = Message(
             name=fake.name(),
             body=fake_CN.sentence(),
             timestamp=fake.date_time_this_year(),
             img_file_name= random.choice(example_img_list),
-            hidden_message=fake_CN.sentence(),
+            has_hidden_message=has_hidden_message,
+            hidden_message=fake.sentence() if has_hidden_message else None,
             fake=True
         )
         db.session.add(message)

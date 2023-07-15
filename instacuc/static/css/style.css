@@ -84,3 +84,21 @@ nav li a:hover {
     float: right;
     padding: 3px 12px;
 }
+
+.decode_btn {
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    background: #e9f0d9;
+    border-radius: 5px;
+    padding: 3px 5px;
+}
+
+.decode_btn:hover {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
