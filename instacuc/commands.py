@@ -1,9 +1,11 @@
+import os
+import random
+
 import click
 
+from covert_communication.image import embed_watermark, extract_watermark
 from instacuc import app, db
 from instacuc.models import Message
-
-import random
 
 
 @app.cli.command()
@@ -19,7 +21,7 @@ def initdb(drop):
 
 
 @app.cli.command()
-@click.option('--count', default=5, help='Quantity of messages, default is 20.')
+@click.option('--count', default=5, help='Quantity of messages, default is 5. Must be lest than 6')
 def forge(count):
     """Generate fake messages."""
     from faker import Faker
@@ -29,11 +31,10 @@ def forge(count):
 
     def get_example_images():
         """获取测试用图片"""
-        import os
-        example_img_dir = os.path.join( app.config['UPLOADED_PHOTOS_DEST'], 'example_CUC')
+        example_img_dir = os.path.join(app.config['UPLOADED_PHOTOS_DEST'], 'example_CUC')
         example_img_list = []
         for filename in os.listdir(example_img_dir):
-            example_img_list.append(os.path.join('example_CUC', filename))
+            example_img_list.append(filename)
 
         return example_img_list
 
@@ -45,16 +46,26 @@ def forge(count):
 
     
     for i in range(count):
-        has_hidden_message= random.choice([True, False])
+        has_hidden_message = random.choice([True, False])
         message = Message(
             name=fake.name(),
             body=fake_CN.sentence(),
             timestamp=fake.date_time_this_year(),
-            img_file_name= random.choice(example_img_list),
+            img_file_name=example_img_list[i],
             has_hidden_message=has_hidden_message,
             hidden_message=fake.sentence() if has_hidden_message else None,
             fake=True
         )
+        
+        img_file_source_path = os.path.join(app.config['UPLOADED_PHOTOS_DEST'], 'example_CUC', message.img_file_name)
+        img_file_dest_path = os.path.join(app.config['UPLOADED_PHOTOS_DEST'], message.img_file_name)
+        if message.has_hidden_message:
+            print(f"{img_file_source_path} ——> {img_file_dest_path}")
+            embed_watermark(img_file_source_path, message.hidden_message, img_file_dest_path)
+        else:
+            import shutil
+            shutil.copyfile(img_file_source_path, img_file_dest_path)
+
         db.session.add(message)
 
     db.session.commit()

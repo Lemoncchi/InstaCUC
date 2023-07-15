@@ -98,9 +98,9 @@ class InstaCUCTestCase(unittest.TestCase):
         self.assertEqual(Message.query.count(), 5)
 
     def test_forge_command_with_count(self):
-        result = self.runner.invoke(forge, ['--count', '50'])
-        self.assertIn('Created 50 fake messages.', result.output)
-        self.assertEqual(Message.query.count(), 50)
+        result = self.runner.invoke(forge, ['--count', '5'])
+        self.assertIn('Created 5 fake messages.', result.output)
+        self.assertEqual(Message.query.count(), 5)
 
     def test_initdb_command(self):
         result = self.runner.invoke(initdb)
