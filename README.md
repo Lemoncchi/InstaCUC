@@ -29,7 +29,7 @@ $ pip install -r requirements.txt
 ### Pipenv 安装:
 
 ```bash
-$ pipenv install --dev
+$ pipenv install
 $ pipenv shell
 ```
 
