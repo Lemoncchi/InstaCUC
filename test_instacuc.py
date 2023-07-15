@@ -51,7 +51,7 @@ class InstaCUCTestCase(unittest.TestCase):
     def test_index_page(self):
         response = self.client.get('/')
         data = response.get_data(as_text=True)
-        self.assertIn('Say Hello', data)
+        self.assertIn('Insta CUC', data)
 
     def test_create_message(self):
         response = self.client.post('/', data=dict(
