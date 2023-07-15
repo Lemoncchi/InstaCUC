@@ -52,18 +52,21 @@ class InstaCUCTestCase(unittest.TestCase):
         response = self.client.get('/')
         data = response.get_data(as_text=True)
         self.assertIn('Insta CUC', data)
-
-    # def test_create_message(self):
-    #     response = self.client.post('/', data=dict(
-    #         name='Peter',
-    #         body='Hello, world.',
-    #         photo='0Q0A1580.JPG',
-    #         hidden_message='Hello, world.',
-    #         # fake=True
-    #     ), follow_redirects=True)
-    #     data = response.get_data(as_text=True)
-    #     self.assertIn('Your message have been sent to the world!', data)
-    #     self.assertIn('Hello, world.', data)
+    
+    def test_create_message(self):
+        import io
+        with open('uploads/example_CUC/0Q0A1580.JPG', 'rb') as test_post_img:
+            with io.BytesIO(test_post_img.read()) as imgBytesIO:
+                response = self.client.post('/', content_type='multipart/form-data', data=dict(
+                    name='Peter',
+                    body='Hello, world.',
+                    hidden_message='Hello, hidden.',
+                    photo=(imgBytesIO, '0Q0A1580.JPG'),
+                    # fake=True
+                ), follow_redirects=True)
+                data = response.get_data(as_text=True)
+                self.assertIn('Your message have been sent to the world!', data)
+                self.assertIn('Hello, world.', data)
 
     def test_form_validation(self):
         response = self.client.post('/', data=dict(
