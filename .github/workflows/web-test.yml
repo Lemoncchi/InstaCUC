@@ -1,5 +1,5 @@
 # name指的是这套工作流程的名称，可以自定义
-name: CI
+name: InstCUC_CI
 
 # on是指这套工作流程的trigger条件，即在push时触发
 on: [push]
@@ -22,8 +22,11 @@ jobs:
       run: 
         # 安装所需要的依赖
         pip3 install -r requirements.txt
-    - name: executing
+    - name: coverage test
       run: 
-        # 指定所要运行的shell
-        python3 test_instacuc.py
-        
+        # 运行测试用例
+        coverage run test_instacuc.py
+    - name: generate report
+      run: 
+        # 生成测试报告
+        coverage report
