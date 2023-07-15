@@ -165,12 +165,13 @@ def extract_watermark(embeded_image_path):
                     for i in range(watermark_length):
                         decoded_watermark += chr(
                             int(watermark_string[i * 8:(i + 1) * 8], 2))
-                    print(decoded_watermark)
+                    # print(decoded_watermark)
                     return decoded_watermark
                 index += 1
 
 
 if __name__ == '__main__':
-    extract_watermark(
-        "C:/Users/admin/Desktop/learn_flask_the_hard_way/0x08_adminlte/instance/temp/temp.jpg"
-    )
+    embed_watermark("../uploads/example_CUC/0Q0A1582.JPG", "Hello CUC", "watermarked.jpg")
+    decoded_watermark =extract_watermark("watermarked.jpg")
+    print(decoded_watermark)
+    print(len(decoded_watermark))
