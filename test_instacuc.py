@@ -67,6 +67,20 @@ class InstaCUCTestCase(unittest.TestCase):
                 data = response.get_data(as_text=True)
                 self.assertIn('Your message have been sent to the world!', data)
                 self.assertIn('Hello, world.', data)
+    
+    def test_create_message_with_hidden_Chinese(self):
+        import io
+        with open('uploads/example_CUC/0Q0A1580.JPG', 'rb') as test_post_img:
+            with io.BytesIO(test_post_img.read()) as imgBytesIO:
+                response = self.client.post('/', content_type='multipart/form-data', data=dict(
+                    name='Peter',
+                    body='Hello, world.',
+                    hidden_message='测试中文隐藏信息',
+                    photo=(imgBytesIO, '0Q0A1580.JPG'),
+                    # fake=True
+                ), follow_redirects=True)
+                data = response.get_data(as_text=True)
+                self.assertIn('由于目前使用的水印算法会有部分误码，中文编码嵌入后解码效果惨不忍睹，所以目前只能输入英文 (⋟﹏⋞)', data)
 
     def test_form_validation(self):
         response = self.client.post('/', data=dict(
