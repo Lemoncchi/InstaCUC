@@ -25,7 +25,7 @@ jobs:
     - name: coverage test
       run: 
         # 运行测试用例
-        coverage run test_instacuc.py
+        coverage run --source=instacuc test_instacuc.py 
     - name: generate report
       run: 
         # 生成测试报告
