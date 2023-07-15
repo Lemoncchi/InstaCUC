@@ -27,7 +27,7 @@
                 <p class="mb-1">
                     {{ message.body }}
                     {% if message.has_hidden_message %}
-                        <a class="decode_btn" href="{{ url_for('decode_img', id=message.id) }}" target="_self" title="Decode!">
+                        <a class="decode_btn" href="{{ url_for('decode_img', id=message.id) }}" target="_self" onclick="return confirm('Σ(ŎдŎ|||)ﾉﾉ \n\n真的要看吗？！')" title="Decode!">
                             Decode!
                         </a>
                     {% endif %}
