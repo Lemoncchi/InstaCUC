@@ -18,6 +18,10 @@ def index():
         embed_watermark(img_file_path, hidden_message, img_file_path)
         file_url = photos.url(img_file_name)
         message = Message(body=body, name=name, img_file_name=img_file_name, hidden_message=hidden_message)
+        if hidden_message:
+            message.has_hidden_message = True
+        else:
+            message.has_hidden_message = False
         db.session.add(message)
         db.session.commit()
         flash('Your message have been sent to the world!')

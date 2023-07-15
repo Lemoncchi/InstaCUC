@@ -30,6 +30,11 @@
                         <a class="decode_btn" href="{{ url_for('decode_img', id=message.id) }}" target="_self" onclick="return confirm('Σ(ŎдŎ|||)ﾉﾉ \n\n真的要看吗？！')" title="Decode!">
                             Decode!
                         </a>
+                    {% else %}
+                        <span class="decode_btn"
+                            onclick="alert('真的没有藏信息\n\n QAQ')" title="Decode!">
+                            竟然没有藏信息?!
+                        </span>
                     {% endif %}
                     
                 </p>

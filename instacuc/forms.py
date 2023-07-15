@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm, file
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
 from wtforms import StringField, SubmitField, TextAreaField, FileField
-from wtforms.validators import DataRequired, Length, ValidationError
+from wtforms.validators import DataRequired, Length, ValidationError, Optional
 
 from instacuc import app
 
@@ -15,8 +15,8 @@ def ascii_only(form, field):
 
 class HelloForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(1, 20)])
-    body = TextAreaField('Message（若无消息可留空）', validators=[DataRequired(), Length(1, 200)])
-    hidden_message = TextAreaField('Hidden Message', validators=[Length(0, 200), ascii_only])
+    body = TextAreaField('Message', validators=[DataRequired(), Length(1, 200)])
+    hidden_message = TextAreaField('Hidden Message (也可留空不藏)', validators=[Length(0, 200), ascii_only, Optional()])
     photo = FileField(u'图片', validators=[
         file.FileAllowed(photos, u'只能上传图片！'), 
         file.FileRequired(u'文件未选择！')
