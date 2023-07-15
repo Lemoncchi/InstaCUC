@@ -8,6 +8,10 @@
 
 - 基于 `Flask` 框架
 - `unittest` 单元测试
+- `Github Actions` 自动化测试，`virtualenv` 和 `Pipenv` 两种包管理环境均覆盖
+- 用户友好的错误提示
+- 使用 `Flask-Bootstrap` 和 `Flask-WTF` 简化前端开发
+- 使用 `WTForm` 实现抵抗 `CSRF` 攻击
 
 ## Installation
 

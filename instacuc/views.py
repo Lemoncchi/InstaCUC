@@ -1,10 +1,10 @@
-from flask import flash, redirect, url_for, render_template
+from flask import flash, redirect, render_template, url_for
 
 from instacuc import app, db
-from instacuc.forms import HelloForm
+from instacuc.forms import HelloForm, photos
 from instacuc.models import Message
 
-from instacuc.forms import photos
+from covert_communication.image import extract_watermark, embed_watermark
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -14,6 +14,8 @@ def index():
         body = form.body.data
         hidden_message = form.hidden_message.data
         img_file_name = photos.save(form.photo.data)
+        img_file_path = photos.path(img_file_name)
+        embed_watermark(img_file_path, hidden_message, img_file_path)
         file_url = photos.url(img_file_name)
         message = Message(body=body, name=name, img_file_name=img_file_name, hidden_message=hidden_message)
         db.session.add(message)
