@@ -80,6 +80,8 @@ class InstaCUCTestCase(unittest.TestCase):
                     # fake=True
                 ), follow_redirects=True)
                 data = response.get_data(as_text=True)
+                import os
+                os.remove('uploads/0Q0A1580.jpg')  # 测试后删除图片
                 self.assertIn('由于目前使用的水印算法会有部分误码，中文编码嵌入后解码效果惨不忍睹，所以目前只能输入英文 (⋟﹏⋞)', data)
 
     def test_form_validation(self):
