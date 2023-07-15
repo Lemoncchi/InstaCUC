@@ -30,10 +30,11 @@ def forge(count):
     def get_example_images():
         """获取测试用图片"""
         import os
-        example_img_dir = os.path.join(app.static_folder, 'img', 'example_CUC')
+        example_img_dir = os.path.join( app.config['UPLOADED_PHOTOS_DEST'], 'example_CUC')
         example_img_list = []
         for filename in os.listdir(example_img_dir):
-            example_img_list.append(os.path.join('/static', 'img', 'example_CUC', filename))
+            example_img_list.append(os.path.join('example_CUC', filename))
+
         return example_img_list
 
     example_img_list = get_example_images()
@@ -47,7 +48,9 @@ def forge(count):
             name=fake.name(),
             body=fake_CN.sentence(),
             timestamp=fake.date_time_this_year(),
-            img_url= random.choice(example_img_list)
+            img_file_name= random.choice(example_img_list),
+            hidden_message=fake_CN.sentence(),
+            fake=True
         )
         db.session.add(message)
 
